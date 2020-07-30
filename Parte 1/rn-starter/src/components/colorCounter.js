@@ -5,13 +5,20 @@ import { useState } from "react";
 const ColorCounter = ({ color, onIncrease, onDecrease }) => {
   return (
     <View>
-      <Text>{color}</Text>
+      <Text style={estilos.centrado}>{color}</Text>
       <Button onPress={() => onIncrease()} title={`Aumentar ${color}`} />
       <Button onPress={() => onDecrease()} title={`Disminuir ${color}`} />
     </View>
   );
 };
 
-const estilos = StyleSheet.create({});
+const estilos = StyleSheet.create({
+  centrado: {
+    marginTop: 10,
+    marginBottom: 5,
+    marginLeft: 40,
+    fontSize: 15,
+  },
+});
 
 export default ColorCounter;

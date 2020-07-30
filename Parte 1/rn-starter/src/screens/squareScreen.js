@@ -13,46 +13,74 @@ const SquareScreen = () => {
   const setColor = (color, change) => {
     //color === 'red','green','blue'
     //change === +15, -15
-    if (color === "red") {
-      if (red + change > 255 || red + change < 0) {
+    switch (color) {
+      case "red":
+        if (red + change > 255 || red + change < 0) {
+          return;
+        } else {
+          setRed(red + change);
+        }
         return;
-      } else {
-        setRed(red + change);
-      }
+    }
+    switch (color) {
+      case "green":
+        if (green + change > 255 || green + change < 0) {
+          return;
+        } else {
+          setGreen(green + change);
+        }
+        return;
+    }
+    switch (color) {
+      case "blue":
+        if (blue + change > 255 || blue + change < 0) {
+          return;
+        } else {
+          setBlue(blue + change);
+        }
+        return;
+      default:
+        return;
     }
   };
   return (
     <View>
-      <Text>COLORES</Text>
       <ColorCounter
         onIncrease={() => setColor("red", COLOR_INCREMENT)}
         onDecrease={() => setColor("red", -1 * COLOR_INCREMENT)}
         color="Rojo"
       />
       <ColorCounter
-        onIncrease={() => setGreen(green + COLOR_INCREMENT)}
-        onDecrease={() => setGreen(green - COLOR_INCREMENT)}
+        onIncrease={() => setColor("green", COLOR_INCREMENT)}
+        onDecrease={() => setColor("green", -1 * COLOR_INCREMENT)}
         color="Verde"
       />
       <ColorCounter
-        onIncrease={() => setBlue(blue + COLOR_INCREMENT)}
-        onDecrease={() => setBlue(blue - COLOR_INCREMENT)}
+        onIncrease={() => setColor("blue", COLOR_INCREMENT)}
+        onDecrease={() => setColor("blue", -1 * COLOR_INCREMENT)}
         color="Azul"
       />
       <View
         style={{
+          marginTop: 15,
+          marginLeft: 120,
           height: 150,
           width: 150,
           backgroundColor: `rgb(${red} , ${green} , ${blue} )`,
         }}
       />
-      <Text>
+      <Text style={estilos.centrado}>
         Composicion RGB : ({red}, {green}, {blue})
       </Text>
     </View>
   );
 };
 
-const estilos = StyleSheet.create({});
+const estilos = StyleSheet.create({
+  centrado: {
+    marginTop: 15,
+    marginLeft: 100,
+  },
+});
 
 export default SquareScreen;
