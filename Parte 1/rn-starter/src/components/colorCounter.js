@@ -16,7 +16,7 @@ const estilos = StyleSheet.create({
   centrado: {
     marginTop: 10,
     marginBottom: 5,
-    marginLeft: 40,
+    marginLeft: 15,
     fontSize: 15,
   },
 });
