@@ -25,18 +25,19 @@ const TextScreen = () => {
 const estilos = StyleSheet.create({
   titulo: {
     fontSize: 17,
-    marginBottom: 10,
+    alignSelf: "center",
     marginTop: 10,
-    marginLeft: 100,
   },
   input: {
     margin: 15,
     borderColor: "black",
     borderWidth: 1,
+    padding: 10,
+    height: 40,
   },
   contra: {
     color: "red",
-    marginLeft: 15,
+    alignSelf: "center",
   },
 });
 

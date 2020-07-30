@@ -39,10 +39,10 @@ const HomeScreen = (props) => {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 30,
+    fontSize: 25,
     marginBottom: 10,
     marginTop: 10,
-    marginLeft: 90,
+    alignSelf: "center",
   },
 });
 

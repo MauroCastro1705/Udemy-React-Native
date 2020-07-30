@@ -4,7 +4,7 @@ import ImageDetail from "../components/imageDetail";
 
 const ImageScreen = () => {
   return (
-    <View>
+    <View style={estilos.principal}>
       <Text style={estilos.titulo}>Pantalla de imagenes</Text>
       <ImageDetail
         titulo="El Bosque"
@@ -27,7 +27,11 @@ const ImageScreen = () => {
 
 const estilos = StyleSheet.create({
   titulo: {
-    fontSize: 35,
+    fontSize: 25,
+    marginBottom: 10,
+  },
+  principal: {
+    alignItems: "center",
   },
 });
 

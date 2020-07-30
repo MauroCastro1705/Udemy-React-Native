@@ -10,7 +10,7 @@ import {
 
 const ImageDetail = (props) => {
   return (
-    <View>
+    <View style={estilos.principal}>
       <Image source={props.imageSource} />
       <Text style={estilos.titulo}>{props.titulo}</Text>
       <Text style={estilos.puntaje}>
@@ -22,10 +22,14 @@ const ImageDetail = (props) => {
 
 const estilos = StyleSheet.create({
   titulo: {
-    fontSize: 35,
+    fontSize: 30,
   },
   puntaje: {
     fontSize: 20,
+    marginBottom: 5,
+  },
+  principal: {
+    alignItems: "center",
   },
 });
 

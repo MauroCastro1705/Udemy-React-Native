@@ -63,10 +63,20 @@ const SquareScreen = () => {
       <View
         style={{
           marginTop: 15,
-          marginLeft: 120,
-          height: 150,
-          width: 150,
+          marginLeft: 100,
+          height: 200,
+          width: 200,
+          borderRadius: 15,
           backgroundColor: `rgb(${red} , ${green} , ${blue} )`,
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 3,
+          },
+          shadowOpacity: 0.8,
+          shadowRadius: 4.65,
+
+          elevation: 5,
         }}
       />
       <Text style={estilos.centrado}>
@@ -78,7 +88,7 @@ const SquareScreen = () => {
 
 const estilos = StyleSheet.create({
   centrado: {
-    marginTop: 15,
+    marginTop: 35,
     marginLeft: 100,
   },
 });
