@@ -1,38 +1,56 @@
 import React from "react";
 import { Text, StyleSheet, View, Button, FlatList } from "react-native";
 import { useState } from "react";
+import ColorCounter from "../components/colorCounter";
+
+const COLOR_INCREMENT = 15; //saltos en el color
 
 const SquareScreen = () => {
-  const [colors, setColors] = useState([]);
+  const [red, setRed] = useState(0);
+  const [green, setGreen] = useState(0);
+  const [blue, setBlue] = useState(0);
 
+  const setColor = (color, change) => {
+    //color === 'red','green','blue'
+    //change === +15, -15
+    if (color === "red") {
+      if (red + change > 255 || red + change < 0) {
+        return;
+      } else {
+        setRed(red + change);
+      }
+    }
+  };
   return (
     <View>
       <Text>COLORES</Text>
-      <Button
-        title="Agregar un color"
-        onPress={() => {
-          setColors([...colors, randomRgb()]);
+      <ColorCounter
+        onIncrease={() => setColor("red", COLOR_INCREMENT)}
+        onDecrease={() => setColor("red", -1 * COLOR_INCREMENT)}
+        color="Rojo"
+      />
+      <ColorCounter
+        onIncrease={() => setGreen(green + COLOR_INCREMENT)}
+        onDecrease={() => setGreen(green - COLOR_INCREMENT)}
+        color="Verde"
+      />
+      <ColorCounter
+        onIncrease={() => setBlue(blue + COLOR_INCREMENT)}
+        onDecrease={() => setBlue(blue - COLOR_INCREMENT)}
+        color="Azul"
+      />
+      <View
+        style={{
+          height: 150,
+          width: 150,
+          backgroundColor: `rgb(${red} , ${green} , ${blue} )`,
         }}
       />
-      <FlatList
-        keyExtractor={(item) => item}
-        data={colors}
-        renderItem={({ item }) => {
-          return (
-            <View style={{ height: 100, width: 100, backgroundColor: item }} />
-          );
-        }}
-      />
+      <Text>
+        Composicion RGB : ({red}, {green}, {blue})
+      </Text>
     </View>
   );
-};
-
-const randomRgb = () => {
-  const red = Math.floor(Math.random() * 256);
-  const blue = Math.floor(Math.random() * 256);
-  const green = Math.floor(Math.random() * 256);
-
-  return `rgb(${red}, ${green}, ${blue})`;
 };
 
 const estilos = StyleSheet.create({});
